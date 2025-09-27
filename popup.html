@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveMyFavs</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Meus Favoritos</h1>
+            <div class="search-add-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar favoritos...">
+                <button id="add-current-page-btn" title="Adicionar página atual">+</button>
+            </div>
+        </header>
+
+        <main id="bookmarks-list" class="bookmarks-container">
+            <!-- Favoritos e pastas serão renderizados aqui pelo JavaScript -->
+        </main>
+
+        <footer>
+            <div class="actions">
+                <button id="add-folder-btn">Criar Pasta</button>
+                 <div class="settings-group">
+                    <button id="settings-btn">⚙️</button>
+                    <div id="settings-menu" class="settings-menu">
+                        <button id="export-btn">Exportar Favoritos</button>
+                        <button id="import-btn">Importar Favoritos</button>
+                        <input type="file" id="import-file-input" accept=".json, .txt" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="sort-options">
+                <span>Ordenar por:</span>
+                <button class="sort-btn" data-sort="manual">Manual</button>
+                <button class="sort-btn" data-sort="name">Nome</button>
+                <button class="sort-btn" data-sort="date">Data</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal para adicionar/editar favorito -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Editar Favorito</h2>
+            <input type="hidden" id="edit-id">
+            <input type="hidden" id="edit-type">
+            <div class="form-group">
+                <label for="edit-name">Nome:</label>
+                <input type="text" id="edit-name">
+            </div>
+            <div class="form-group" id="url-form-group">
+                <label for="edit-url">URL:</label>
+                <input type="text" id="edit-url">
+            </div>
+            <button id="save-edit-btn">Salvar</button>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
